@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'book.dart';
+import 'credentials.dart';
 
 final booksRef =
     FirebaseFirestore.instance.collection('books').withConverter<Book>(
@@ -13,6 +15,9 @@ final booksRef =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await FirebaseAuth.instance.signInWithCredential(
+      EmailAuthProvider.credential(email: email, password: password));
+
   final List<QueryDocumentSnapshot<Book>> books =
       await booksRef.get().then((snapshot) => snapshot.docs);
   books.map((e) => print(e.data().title));
