@@ -11,6 +11,7 @@ final booksRef =
         );
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final List<QueryDocumentSnapshot<Book>> books =
       await booksRef.get().then((snapshot) => snapshot.docs);
