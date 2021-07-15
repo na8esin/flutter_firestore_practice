@@ -20,7 +20,9 @@ Future<void> main() async {
 
   final List<QueryDocumentSnapshot<Book>> books =
       await booksRef.get().then((snapshot) => snapshot.docs);
-  books.map((e) => print(e.data().title));
+  books.forEach((element) {
+    print(element.data().title);
+  });
 //  runApp(MyApp());
 }
 
