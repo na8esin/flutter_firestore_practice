@@ -16,10 +16,6 @@ class Organization with _$Organization {
   factory Organization.fromJson(JsonMap json) => _$OrganizationFromJson(json);
 }
 
-class OrganizationField {
-  static const count = 'count';
-}
-
 final organizationsRef = OrganizationsRef();
 
 class OrganizationsRef
