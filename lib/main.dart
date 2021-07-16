@@ -18,29 +18,16 @@ Future<void> main() async {
   await FirebaseAuth.instance.signInWithCredential(
       EmailAuthProvider.credential(email: email, password: password));
 
-  final List<QueryDocumentSnapshot<Book>> books =
+  // QueryDocumentSnapshot<Book>に名前をつけたくなる
+  final List<QueryDocumentSnapshot<Book>> qDSBooks =
       await booksRef.get().then((snapshot) => snapshot.docs);
-  books.forEach((element) {
+  qDSBooks.forEach((element) {
     print(element.data().title);
   });
 //  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
