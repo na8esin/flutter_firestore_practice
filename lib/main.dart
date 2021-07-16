@@ -20,13 +20,4 @@ Future<void> main() async {
   qDSBooks.forEach((element) {
     print(element.data().name);
   });
-//  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
 }

@@ -21,11 +21,11 @@ class _$TeamTearOff {
   const _$TeamTearOff();
 
   _Team call(
-      {required int count,
+      {required String name,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt}) {
     return _Team(
-      count: count,
+      name: name,
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -41,7 +41,7 @@ const $Team = _$TeamTearOff();
 
 /// @nodoc
 mixin _$Team {
-  int get count => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @TimestampConverter()
@@ -57,7 +57,7 @@ abstract class $TeamCopyWith<$Res> {
   factory $TeamCopyWith(Team value, $Res Function(Team) then) =
       _$TeamCopyWithImpl<$Res>;
   $Res call(
-      {int count,
+      {String name,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt});
 }
@@ -72,15 +72,15 @@ class _$TeamCopyWithImpl<$Res> implements $TeamCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? count = freezed,
+    Object? name = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$TeamCopyWith<$Res> implements $TeamCopyWith<$Res> {
       __$TeamCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int count,
+      {String name,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt});
 }
@@ -115,15 +115,15 @@ class __$TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? count = freezed,
+    Object? name = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_Team(
-      count: count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ class __$TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Team with DiagnosticableTreeMixin implements _Team {
   const _$_Team(
-      {required this.count,
+      {required this.name,
       @TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt});
 
@@ -148,7 +148,7 @@ class _$_Team with DiagnosticableTreeMixin implements _Team {
       _$_$_TeamFromJson(json);
 
   @override
-  final int count;
+  final String name;
   @override
   @TimestampConverter()
   final DateTime? createdAt;
@@ -158,7 +158,7 @@ class _$_Team with DiagnosticableTreeMixin implements _Team {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Team(count: $count, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Team(name: $name, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -166,7 +166,7 @@ class _$_Team with DiagnosticableTreeMixin implements _Team {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Team'))
-      ..add(DiagnosticsProperty('count', count))
+      ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt));
   }
@@ -175,8 +175,8 @@ class _$_Team with DiagnosticableTreeMixin implements _Team {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Team &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.createdAt, createdAt) ||
                 const DeepCollectionEquality()
                     .equals(other.createdAt, createdAt)) &&
@@ -188,7 +188,7 @@ class _$_Team with DiagnosticableTreeMixin implements _Team {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(count) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(updatedAt);
 
@@ -205,14 +205,14 @@ class _$_Team with DiagnosticableTreeMixin implements _Team {
 
 abstract class _Team implements Team {
   const factory _Team(
-      {required int count,
+      {required String name,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt}) = _$_Team;
 
   factory _Team.fromJson(Map<String, dynamic> json) = _$_Team.fromJson;
 
   @override
-  int get count => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @override
   @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;

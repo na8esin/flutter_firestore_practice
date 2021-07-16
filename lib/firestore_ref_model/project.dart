@@ -16,10 +16,10 @@ class Project with _$Project {
   factory Project.fromJson(JsonMap json) => _$ProjectFromJson(json);
 }
 
-final projectsRef = ProjectsRef();
-
 class ProjectsRef extends CollectionRef<Project, ProjectDoc, ProjectRef> {
-  ProjectsRef() : super(FirebaseFirestore.instance.collection('projects'));
+  ProjectsRef(String parentId)
+      : super(FirebaseFirestore.instance
+            .collection('organizations/$parentId/projects'));
 
   @override
   JsonMap encode(Project data) => replacingTimestamp(json: data.toJson());

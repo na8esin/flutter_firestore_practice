@@ -14,5 +14,5 @@ https://riverpod.dev/docs/concepts/modifiers/family#passing-multiple-parameters-
 ### familyの引数で使える
 
 ## コマンド
-flutter pub run build_runner build　--delete-conflicting-outputs
+flutter pub run build_runner build --delete-conflicting-outputs
 

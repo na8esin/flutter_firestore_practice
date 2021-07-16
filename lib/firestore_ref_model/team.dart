@@ -3,23 +3,31 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'project.dart';
+
 part 'team.freezed.dart';
 part 'team.g.dart';
 
 @freezed
 class Team with _$Team {
   const factory Team({
-    required int count,
+    required String name,
     @TimestampConverter() DateTime? createdAt,
     @TimestampConverter() DateTime? updatedAt,
   }) = _Team;
   factory Team.fromJson(JsonMap json) => _$TeamFromJson(json);
 }
 
-final teamsRef = TeamsRef();
-
 class TeamsRef extends CollectionRef<Team, TeamDoc, TeamRef> {
-  TeamsRef() : super(FirebaseFirestore.instance.collection('teams'));
+  TeamsRef(this.cr) : super(cr);
+  final CollectionReference<Map<String, dynamic>> cr;
+
+  factory TeamsRef.parentDoc(ProjectDoc doc) =>
+      TeamsRef(doc.projectRef.ref.collection('teams'));
+
+  factory TeamsRef.ids(String grandParentId, String parentId) =>
+      TeamsRef(FirebaseFirestore.instance
+          .collection('organizations/$grandParentId/projects/$parentId/teams'));
 
   @override
   JsonMap encode(Team data) => replacingTimestamp(json: data.toJson());
