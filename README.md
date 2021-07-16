@@ -12,3 +12,7 @@ https://riverpod.dev/docs/concepts/modifiers/family#passing-multiple-parameters-
 ## firestore_refを使う理由
 ### TimestampConverter
 ### familyの引数で使える
+
+## コマンド
+flutter pub run build_runner build　--delete-conflicting-outputs
+
