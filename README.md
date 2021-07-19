@@ -12,6 +12,8 @@ https://riverpod.dev/docs/concepts/modifiers/family#passing-multiple-parameters-
 ## firestore_refを使う理由
 ### TimestampConverter
 ### familyの引数で使える
+### deleteAllDocuments
+documentsを500に制限しながら再帰的に削除する
 
 ## コマンド
 flutter pub run build_runner build --delete-conflicting-outputs

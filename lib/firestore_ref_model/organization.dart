@@ -44,6 +44,7 @@ class OrganizationsRef
 
 class OrganizationRef extends DocumentRef<Organization, OrganizationDoc> {
   const OrganizationRef({
+    // JsonMapは裏の処理を書き換えればOrganizationにできると思う
     required DocumentReference<JsonMap> ref,
     required this.organizationsRef,
   }) : super(
@@ -54,6 +55,7 @@ class OrganizationRef extends DocumentRef<Organization, OrganizationDoc> {
   final OrganizationsRef organizationsRef;
 }
 
+// entity(document)とid(documentID)を一緒に固めてあるクラス
 class OrganizationDoc extends Document<Organization> {
   const OrganizationDoc(
     this.organizationRef,

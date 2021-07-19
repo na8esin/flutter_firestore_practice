@@ -19,3 +19,8 @@ Future<void> main() async {
     print(entity.name);
   });
 }
+
+sample() {
+  // OrganizationRef.refに相当
+  final DocumentReference<Organization> doc = organizationsRef.doc();
+}
