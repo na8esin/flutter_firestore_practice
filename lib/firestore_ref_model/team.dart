@@ -18,6 +18,12 @@ class Team with _$Team {
   factory Team.fromJson(JsonMap json) => _$TeamFromJson(json);
 }
 
+/*
+  TeamsRef
+  TeamRef
+  TeamDoc
+*/
+
 class TeamsRef extends CollectionRef<Team, TeamDoc, TeamRef> {
   TeamsRef(this.cr) : super(cr);
   final CollectionReference<Map<String, dynamic>> cr;
