@@ -24,16 +24,30 @@ class Team with _$Team {
   TeamDoc
 */
 
+/**
+ * 親の親がorganizations,親がprojects
+ */
 class TeamsRef extends CollectionRef<Team, TeamDoc, TeamRef> {
   TeamsRef(this.cr) : super(cr);
   final CollectionReference<Map<String, dynamic>> cr;
 
+  // 作ってみたもののあんまり意味がない
   factory TeamsRef.parentDoc(ProjectDoc doc) =>
       TeamsRef(doc.projectRef.ref.collection('teams'));
 
+  // 呼び出し元が冗長
+  factory TeamsRef.parentRef(ProjectRef parentRef) =>
+      TeamsRef(parentRef.ref.collection('teams'));
+
+  // 呼び出しもとは簡潔
   factory TeamsRef.ids(String grandParentId, String parentId) =>
       TeamsRef(FirebaseFirestore.instance
           .collection('organizations/$grandParentId/projects/$parentId/teams'));
+
+  /* collectionGroupだと型が合わない
+  factory TeamsRef.parentId(String parentId) =>
+      TeamsRef(FirebaseFirestore.instance.collectionGroup(collectionPath));
+  */
 
   @override
   JsonMap encode(Team data) => replacingTimestamp(json: data.toJson());
