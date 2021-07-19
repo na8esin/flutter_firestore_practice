@@ -8,9 +8,14 @@ Future<void> main() async {
   await boringInitialization();
 
   // QueryDocumentSnapshot<Book>に名前をつけたくなる
-  final List<QueryDocumentSnapshot<Organization>> qDSBooks =
-      await organizationsRef.get().then((snapshot) => snapshot.docs);
-  qDSBooks.forEach((element) {
-    print(element.data().name);
+  final QuerySnapshot<Organization> qSOrganization =
+      await organizationsRef.get();
+
+  final List<QueryDocumentSnapshot<Organization>> qDSOrganizations =
+      qSOrganization.docs;
+
+  qDSOrganizations.forEach((QueryDocumentSnapshot<Organization> element) {
+    final Organization entity = element.data();
+    print(entity.name);
   });
 }
