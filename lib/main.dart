@@ -27,6 +27,8 @@ sample2() async {
   // firestore_refのOrganizationRef.refに相当
   final DocumentReference<Organization> doc = organizationsRef.doc();
   final DocumentSnapshot<Organization> docSnapshot = await doc.get();
+  final Organization? entity = docSnapshot.data();
+  final documentID = docSnapshot.id;
 }
 
 sample3() async {
@@ -34,7 +36,7 @@ sample3() async {
       .collectionGroup('projects')
       .firestore
       .doc('MgHUATc8GXHSHTOuTX1D');
-  // a document path must point to a valid document.)
+  // a document path must point to a valid document.
 
   // data()['name'] などが使える
   final documentSnapshot = await docRef.get();
@@ -59,6 +61,7 @@ collectionGroupSample() async {
 // できないっぽい
 fun() {
   //FirebaseFirestore.instance.collectionGroup('project').where(
+  //
   // とかできないし、存在しない
   //FirebaseFirestore.FieldPath.documentId()
   //    );
